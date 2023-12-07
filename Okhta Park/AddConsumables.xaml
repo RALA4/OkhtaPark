@@ -1,0 +1,71 @@
+﻿<Window x:Class="Okhta_Park.AddConsumables"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Okhta_Park"
+        Icon="/res/logo.ico"
+        mc:Ignorable="d"
+        Title="Добавление расходного материала" Height="270" Width="350" WindowStartupLocation="CenterScreen" 
+        ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel>
+            <TextBox VerticalAlignment="Center" Text="{Binding ID}"
+                materialDesign:HintAssist.Hint="ID для услуги"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                Height="40" Margin="15 10 15 0" x:Name="ForId"
+                FontFamily="Comic Sans MS" FontSize="14"
+                ToolTip="Содержит только числовое значение"
+                     PreviewKeyDown="FormatPreviewKeyDown"/>
+
+            <TextBox VerticalAlignment="Center" Height="40" Margin="15 5 15 0" 
+                FontFamily="Comic Sans MS" FontSize="14" Text="{Binding NameService}"
+                materialDesign:HintAssist.Hint="Название услуги" x:Name="ForName"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+            <TextBox VerticalAlignment="Center" Height="40" Margin="15 5 15 0" 
+                FontFamily="Comic Sans MS" FontSize="14" Text="{Binding CodeService}"
+                materialDesign:HintAssist.Hint="Код услуги" x:Name="ForCode"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+            <TextBox VerticalAlignment="Center" Height="40" Margin="15 5 15 0" 
+                FontFamily="Comic Sans MS" FontSize="14" Text="{Binding CostHour}"
+                materialDesign:HintAssist.Hint="Стоимость за час" x:Name="ForMoney"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                ToolTip="Содержит только числовое значение"
+                     PreviewKeyDown="FormatPreviewKeyDown"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Button x:Name="ActionAdd" Width="180" Height="30" Background="Transparent"
+                FontSize="18" Foreground="#008c51" FontWeight="DemiBold" Margin="0,0,150,3"
+                Click="ActionAddClick" Content="Добавить услугу" BorderBrush="#008c51"
+                FontFamily="Comic Sans MS">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="ActionOut" Width="140" Height="30" Background="Transparent"
+    FontSize="18" Foreground="#008c51" FontWeight="DemiBold" Margin="180,0,0,3"
+    Click="ActionOutClick" Content="Выход" BorderBrush="#008c51"
+    FontFamily="Comic Sans MS">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
